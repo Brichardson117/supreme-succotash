@@ -8,7 +8,7 @@ request.onupgradeneeded = function (event) {
   db.createObjectStore("new_transaction", { autoIncrement: true });
 };
 
-// upon a successful
+
 request.onsuccess = function (event) {
   db = event.target.result;
 
@@ -57,7 +57,7 @@ function uploadTransaction() {
           const transactonObjectStore =
             transaction.objectStore("new_transaction");
 
-          transactonObjectStoreclear();
+          transactonObjectStore.clear();
 
           alert("All saved transactions have been submitted");
         })
