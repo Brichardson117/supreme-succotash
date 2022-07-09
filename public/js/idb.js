@@ -13,7 +13,7 @@ request.onsuccess = function (event) {
   db = event.target.result;
 
   if (navigator.onLine) {
-    uploadTransaction();
+    uploadTransactions();
   }
 };
 
@@ -24,17 +24,17 @@ request.onerror = function (event) {
 function saveRecord(record) {
   const transactions = db.transactions(["new_transactions"], "readwrite");
 
-  const transactonObjectStore = transactions.objectStore("new_transactions");
+  const transactonsObjectStore = transactions.objectStore("new_transactions");
 
-  transactonObjectStore.add(record);
+  transactonsObjectStore.add(record);
 }
 
 function uploadTransaction() {
-  const transaction = db.transaction(["new_transactions"], "readwrite");
+  const transactions = db.transactions(["new_transactions"], "readwrite");
 
-  const transactonObjectStore = transaction.objectStore("new_transactions");
+  const transactonsObjectStore = transactions.objectStore("new_transactions");
 
-  const getAll = transactonObjectStore.getAll();
+  const getAll = transactonsObjectStore.getAll();
 
   getAll.onsuccess = function () {
     if (getAll.result.length > 0) {
@@ -52,10 +52,10 @@ function uploadTransaction() {
             throw new Error(serverResponse);
           }
 
-          const transaction = db.transaction(["new_transactions"], "readwrite");
+          const transactions = db.transactions(["new_transactions"], "readwrite");
 
           const transactonObjectStore =
-            transaction.objectStore("new_transactions");
+            transactions.objectStore("new_transactions");
 
           transactonObjectStore.clear();
 
