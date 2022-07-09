@@ -22,9 +22,9 @@ request.onerror = function (event) {
 };
 
 function saveRecord(record) {
-  const transaction = db.transaction(["new_transactions"], "readwrite");
+  const transactions = db.transactions(["new_transactions"], "readwrite");
 
-  const transactonObjectStore = transaction.objectStore("new_transactions");
+  const transactonObjectStore = transactions.objectStore("new_transactions");
 
   transactonObjectStore.add(record);
 }
