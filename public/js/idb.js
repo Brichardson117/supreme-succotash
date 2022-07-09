@@ -29,7 +29,7 @@ function saveRecord(record) {
   transactonsObjectStore.add(record);
 }
 
-function uploadTransaction() {
+function uploadTransactions() {
   const transactions = db.transactions(["new_transactions"], "readwrite");
 
   const transactonsObjectStore = transactions.objectStore("new_transactions");
