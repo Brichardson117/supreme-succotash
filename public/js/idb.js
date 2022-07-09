@@ -24,17 +24,17 @@ request.onerror = function (event) {
 function saveRecord(record) {
   const transactions = db.transactions(["new_transactions"], "readwrite");
 
-  const transactonsObjectStore = transactions.objectStore("new_transactions");
+  const transactionsObjectStore = transactions.objectStore("new_transactions");
 
-  transactonsObjectStore.add(record);
+  transactionsObjectStore.add(record);
 }
 
 function uploadTransactions() {
   const transactions = db.transactions(["new_transactions"], "readwrite");
 
-  const transactonsObjectStore = transactions.objectStore("new_transactions");
+  const transactionsObjectStore = transactions.objectStore("new_transactions");
 
-  const getAll = transactonsObjectStore.getAll();
+  const getAll = transactionsObjectStore.getAll();
 
   getAll.onsuccess = function () {
     if (getAll.result.length > 0) {
@@ -54,10 +54,10 @@ function uploadTransactions() {
 
           const transactions = db.transactions(["new_transactions"], "readwrite");
 
-          const transactonObjectStore =
+          const transactionsObjectStore =
             transactions.objectStore("new_transactions");
 
-          transactonObjectStore.clear();
+          transactionsObjectStore.clear();
 
           alert("All saved transactions have been submitted");
         })
@@ -68,4 +68,4 @@ function uploadTransactions() {
   };
 }
 
-window.addEventListener('online', uploadTransaction);
+window.addEventListener('online', uploadTransactions);
