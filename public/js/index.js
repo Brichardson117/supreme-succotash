@@ -79,7 +79,7 @@ function populateChart() {
   });
 }
 
-function sendTransaction(isAdding) {
+function sendTransactions(isAdding) {
   let nameEl = document.querySelector("#t-name");
   let amountEl = document.querySelector("#t-amount");
   let errorEl = document.querySelector(".form .error");
@@ -146,9 +146,9 @@ function sendTransaction(isAdding) {
 }
 
 document.querySelector("#add-btn").onclick = function() {
-  sendTransaction(true);
+  sendTransactions(true);
 };
 
 document.querySelector("#sub-btn").onclick = function() {
-  sendTransaction(false);
+  sendTransactions(false);
 };
