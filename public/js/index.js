@@ -24,6 +24,7 @@ function populateTotal() {
 
   let totalEl = document.querySelector("#total");
   totalEl.textContent = total;
+  
 }
 
 function populateTable() {
